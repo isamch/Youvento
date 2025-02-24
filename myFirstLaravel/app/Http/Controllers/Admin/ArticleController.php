@@ -25,8 +25,9 @@ class ArticleController extends Controller
     public function getArticleById($id)
     {
 
-        $article = Article::find($id);
-        // dd($articles);
+        // $article = Article::find($id);
+
+        $article = Article::findorfail($id);
 
         return view('article.index', compact('article'));
     }

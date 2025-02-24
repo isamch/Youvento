@@ -25,11 +25,27 @@ Route::get('/', function () {
 
 
 
-Route::get('/users', [UserController::class, 'index']);
+Route::get('users', [UserController::class, 'index']);
 
 
 Route::get('/users/{id}', [UserController::class, 'getUserById']);
 
-Route::get('/article', [ArticleController::class, 'index']);
+// Route::get('article', [ArticleController::class, 'index']);
 
-Route::get('/article/{id}', [ArticleController::class, 'getArticleById']);
+// Route::get('article/{id}', [ArticleController::class, 'getArticleById']);
+
+// prefex:
+Route::prefix('admin')->group(function () {
+    Route::get('article', [ArticleController::class, 'index']);
+    Route::get('article/{id}', [ArticleController::class, 'getArticleById']);
+});
+
+
+
+
+
+Route::get('/users/{id}', [UserController::class, 'getUserById'])->middleware('example', 'tt');
+
+
+
+// Route::get('category', );

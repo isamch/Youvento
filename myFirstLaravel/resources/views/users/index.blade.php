@@ -8,11 +8,16 @@
 </head>
 <body>
 
+
+
+    <h1>Users</h1>
+
     @foreach ($users as $user)
-        <p>User Id: {{ $user->id }}</p>
-        <p>User Name: {{ $user->name }}</p>
-        <p>User Email: {{ $user->email }}</p>
+
+        <li>{{ $user }}</li>
+
     @endforeach
+
 
 </body>
 </html>
